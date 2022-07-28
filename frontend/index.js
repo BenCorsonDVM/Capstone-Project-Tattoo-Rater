@@ -1,6 +1,6 @@
 const tattoosContainer = document.querySelector('#tattoos-container')
 
-const baseURL = `http://localhost:5500/api/tattoos`
+const baseURL = `/api/tattoos`
 
 const tattoosCallback = ({ data: tattoos }) => displayTattoos(tattoos)
 const errCallback = err => console.log(err)
