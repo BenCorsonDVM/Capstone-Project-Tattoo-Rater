@@ -6,10 +6,20 @@ const tattoosCallback = ({ data: tattoos }) => displayTattoos(tattoos)
 const errCallback = err => console.log(err)
 
 const getAllTattoos = () => axios.get(baseURL).then(tattoosCallback).catch(errCallback)
-// const rateTattoo 
+const rateTattoo = (event) => {
+    event.preventDefault()
+    let tattooId = event.target.id
+    let selectId = `rating-${tattooId}`
+    const ratingSelect = document.getElementById(selectId)
+    const rating = ratingSelect.value
 
-
-
+    const body = {
+        tattooId,
+        rating
+    }
+    
+    axios.post(baseURL, body).then(tattoosCallback).catch(errCallback)
+}
 
 function createTattooCard(tattoos) {
     const tattooCard = document.createElement('div')
@@ -20,9 +30,9 @@ function createTattooCard(tattoos) {
     `<img alt='tattoo cover' id='${tattoos.name}' src=${tattoos.image_path} class='tattoo cover' />
     <div class='ratings'>
         <p>${tattoos.avgrating} average based on ${tattoos.ratingtotal} reviews</p>
-        <form class='dropdowns'>
+        <form id='${tattoos.tattoo_id}' class='dropdowns'>
             <label for='tattoo-rating'>Rate This Tattoo</label>
-            <select name='tattoo-rating' id='tattoo-rating'>
+            <select name='tattoo-rating' class='tattoo-rating' id='rating-${tattoos.tattoo_id}'>
                 <option value='5'>5</option>
                 <option value='4'>4</option>
                 <option value='3'>3</option>
@@ -44,6 +54,13 @@ function displayTattoos(arr) {
     for(let i = 0; i<arr.length; i++) {
         createTattooCard(arr[i])
     }
+    
+    const forms = document.querySelectorAll('form')
+    
+    forms.forEach((form) => {
+        form.addEventListener('submit', rateTattoo)
+    })
 }
+
 
 getAllTattoos()
