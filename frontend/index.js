@@ -6,6 +6,7 @@ const tattoosCallback = ({ data: tattoos }) => displayTattoos(tattoos)
 const errCallback = err => console.log(err)
 
 const getAllTattoos = () => axios.get(baseURL).then(tattoosCallback).catch(errCallback)
+
 const rateTattoo = (event) => {
     event.preventDefault()
     let tattooId = event.target.id
@@ -19,6 +20,11 @@ const rateTattoo = (event) => {
     }
     
     axios.post(baseURL, body).then(tattoosCallback).catch(errCallback)
+}
+
+function scheduleAppt(id) {
+    sessionStorage.setItem('id', id)
+    location.href='/appt.html'
 }
 
 function createTattooCard(tattoos) {
@@ -43,7 +49,7 @@ function createTattooCard(tattoos) {
         </form>
     </div>
     <div>
-        <button id='request-${tattoos.name}' class='request-tattoo-btn'>I Want This Tattoo!</button>
+        <button id='request-${tattoos.name}' class='request-tattoo-btn' onclick='scheduleAppt(${tattoos.tattoo_id})' >I Want This Tattoo!</button>
     </div>`
 
     tattoosContainer.appendChild(tattooCard)  

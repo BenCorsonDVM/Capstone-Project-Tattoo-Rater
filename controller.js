@@ -98,5 +98,16 @@ module.exports = {
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
-    }    
+    },
+    getOneTattoo: (req, res) => {
+        let {id} = req.params 
+        id = +id
+
+        sequelize.query(`
+            SELECT tattoo_id, name, image_path FROM tattoos
+            WHERE ${id} = tattoo_id;   
+        `)
+        .then(dbRes => res.status(200).send(dbRes[0][0]))
+        .catch(err => console.log(err))
+    }
 }
