@@ -1,11 +1,14 @@
 const tattoosContainer = document.querySelector('#tattoos-container')
 
-const baseURL = `https://rays-tattoo-rater.herokuapp.com/`
+const baseURL = `http://localhost:5500/api/tattoos`
 
 const tattoosCallback = ({ data: tattoos }) => displayTattoos(tattoos)
 const errCallback = err => console.log(err)
 
 const getAllTattoos = () => axios.get(baseURL).then(tattoosCallback).catch(errCallback)
+// const rateTattoo 
+
+
 
 
 function createTattooCard(tattoos) {

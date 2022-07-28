@@ -1,9 +1,9 @@
 require('dotenv').config()
 const Sequelize = require('sequelize')
 
-const {CONNECTION_STRING} = process.env
+const {DATABASE_URL} = process.env
 
-const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
+const sequelize = new Sequelize(DATABASE_URL, {
     dialect: 'postgres',
     dialectOptions: {
         ssl: {
@@ -72,12 +72,12 @@ module.exports = {
     },
     getTattoos: (req, res) => {
         sequelize.query(`
-            SELECT t.tattoo_id, name, image_path, r.tattoo_id, ROUND(AVG(rating), 1) AS avgRating, COUNT(rating) AS ratingTotal
+            SELECT t.tattoo_id, name, image_path, r.tattoo_id, ROUND(AVG(rating), 1) AS avgrating, COUNT(rating) AS ratingtotal
             FROM tattoos AS t
             JOIN ratings AS r
             ON t.tattoo_id = r.tattoo_id
             GROUP BY r.tattoo_id, t.tattoo_id
-            ORDER BY avgRating DESC;
+            ORDER BY avgrating DESC;
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
@@ -89,12 +89,12 @@ module.exports = {
             INSERT INTO ratings(tattoo_id, rating)
             VALUES (${tattooId}, ${rating});
 
-            SELECT t.tattoo_id, name, image_path, r.tattoo_id, ROUND(AVG(rating), 1) AS avgRating, COUNT(rating) AS ratingTotal
+            SELECT t.tattoo_id, name, image_path, r.tattoo_id, ROUND(AVG(rating), 1) AS avgrating, COUNT(rating) AS ratingtotal
             FROM tattoos AS t
             JOIN ratings AS r
             ON t.tattoo_id = r.tattoo_id
             GROUP BY r.tattoo_id, t.tattoo_id
-            ORDER BY avgRating DESC;
+            ORDER BY avgrating DESC;
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log(err))
