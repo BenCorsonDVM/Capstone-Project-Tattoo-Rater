@@ -1,5 +1,5 @@
 let tattooId = sessionStorage.getItem('id')
-let homeURL = sessionStorage.getItem('baseURL')
+let homeURL = sessionStorage.getItem('baseURL', location.href)
 let apptContainer = document.querySelector('#appt-container')
 
 
