@@ -11,12 +11,13 @@ app.use(cors())
 app.use('/', express.static(path.join(__dirname, './frontend')))
 
 
-const { seed, getTattoos, rateTattoo, getOneTattoo } = require('./controller')
+const { seed, getTattoos, rateTattoo, getOneTattoo, submitAppt } = require('./controller')
 
 app.post('/seed', seed)
 app.get('/api/tattoos', getTattoos)
 app.post('/api/tattoos', rateTattoo)
 app.get('/api/tattoos/:id', getOneTattoo)
+
 
 
 

@@ -1,6 +1,8 @@
 let tattooId = sessionStorage.getItem('id')
-
+let homeURL = sessionStorage.getItem('baseURL')
 let apptContainer = document.querySelector('#appt-container')
+
+
 
 const getTattoo = () => {
     axios.get(`/api/tattoos/${tattooId}`)
@@ -8,6 +10,22 @@ const getTattoo = () => {
         apptContainer.innerHTML = ``
         apptForm(res.data)
     })
+}
+function homepage(){
+    sessionStorage.clear()
+    location.href= homeURL
+}
+
+function submitAppt(event){
+    event.preventDefault()
+    
+
+    alert('Thank you for scheduling your appointment! \n\n\*This website is for test purposes only. Your appointment has NOT been scheduled\*')
+    // alert(`Thank you ${fname} ${lname} for scheduling an appointment. Your appointment is scheduled for ${date} at ${time}. 
+        
+    // *This website is for test purposes only. Your appointment has not actually been scheduled*`)
+    sessionStorage.clear()
+    location.href= homeURL
 }
 function apptForm(tattoo) {
     const apptCard = document.createElement('div')
@@ -38,10 +56,14 @@ function apptForm(tattoo) {
             <option value="17">5:00</option>
             <option value="18">6:00</option>
         </select><br>
-        <button id="submit">Submit</button>
-    </form>`
+        <button id="submit">Submit</button><br>
+    </form>
+    <button id="cancel" onclick="homepage()">Cancel</button><br>`
 
     apptContainer.appendChild(apptCard)
+    document.querySelector('form').addEventListener('submit', submitAppt)
 }
+
+
 
 getTattoo()

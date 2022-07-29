@@ -24,6 +24,7 @@ const rateTattoo = (event) => {
 
 function scheduleAppt(id) {
     sessionStorage.setItem('id', id)
+    sessionStorage.setItem('baseURL', location.href)
     location.href='/appt.html'
 }
 
@@ -67,6 +68,7 @@ function displayTattoos(arr) {
         form.addEventListener('submit', rateTattoo)
     })
 }
+
 
 
 getAllTattoos()
