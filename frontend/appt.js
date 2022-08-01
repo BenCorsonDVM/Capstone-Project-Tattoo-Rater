@@ -22,7 +22,11 @@ function submitAppt(event){
     let time = document.getElementById('time').value
     let dateInput = document.getElementById('date').value
     let dateString = new Date(dateInput)
-    let date = dateString.toLocaleDateString()
+    let date = new Date(dateString.setTime(dateString.getTime() + 5*1000*60*60)).toLocaleDateString()
+
+    console.log(dateInput)
+    console.log(dateString)
+    console.log(date)
 
     alert(`Thank you ${fname} ${lname} for scheduling an appointment. Your appointment is scheduled for ${date} at ${time}. \n\n\*This website is for test purposes only. Your appointment has NOT actually been scheduled\*`)
     sessionStorage.clear()
