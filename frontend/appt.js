@@ -28,7 +28,7 @@ function submitAppt(event){
     console.log(dateString)
     console.log(date)
 
-    alert(`Thank you ${fname} ${lname} for scheduling an appointment. Your appointment is scheduled for ${date} at ${time}. \n\n\*This website is for test purposes only. Your appointment has NOT actually been scheduled\*`)
+    alert(`Thank you ${fname} ${lname} for scheduling an appointment. Your appointment is scheduled for ${date} at ${time}. \n\n\*This website is for test purposes only. Your appointment has NOT been scheduled\*`)
     sessionStorage.clear()
     location.href= homeURL
 }
