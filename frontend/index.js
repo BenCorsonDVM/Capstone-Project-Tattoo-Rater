@@ -35,23 +35,24 @@ function createTattooCard(tattoos) {
     
     tattooCard.innerHTML = 
     `<img alt='tattoo cover' id='${tattoos.name}' src=${tattoos.image_path} class='tattoo cover' />
-    <div class='ratings'>
-        <p>${tattoos.avgrating} average based on ${tattoos.ratingtotal} reviews</p>
-        <form id='${tattoos.tattoo_id}' class='dropdowns'>
-            <label for='tattoo-rating'>Rate This Tattoo</label>
-            <select name='tattoo-rating' class='tattoo-rating' id='rating-${tattoos.tattoo_id}'>
-                <option value='5'>5</option>
-                <option value='4'>4</option>
-                <option value='3'>3</option>
-                <option value='2'>2</option>
-                <option value='1'>1</option>
-            </select>
-            <button id='submit-${tattoos.name}' class='submit-btn'>Submit</button>
-        </form>
-    </div>
-    <div>
-        <button id='request-${tattoos.name}' class='request-tattoo-btn' onclick='scheduleAppt(${tattoos.tattoo_id})' >I Want This Tattoo!</button>
-    </div>`
+        <div class='ratings'>
+            <p>${tattoos.avgrating} AVERAGE BASED ON ${tattoos.ratingtotal} REVIEWS</p>
+            <form id='${tattoos.tattoo_id}' class='dropdowns'>
+                <label for='tattoo-rating'>RATE THIS TATTOO</label>
+                <select name='tattoo-rating' class='tattoo-rating' id='rating-${tattoos.tattoo_id}'>
+                    <option value='5'>5</option>
+                    <option value='4'>4</option>
+                    <option value='3'>3</option>
+                    <option value='2'>2</option>
+                    <option value='1'>1</option>
+                </select>
+                <button id='submit-${tattoos.name}' class='submit-btn'>SUBMIT</button><br><br>
+            </form>
+        </div>
+        <div>
+            <button id='request-${tattoos.name}' class='request-tattoo-btn' onclick='scheduleAppt(${tattoos.tattoo_id})' >I WANT THIS TATTOO!</button>
+        </div>
+    `
 
     tattoosContainer.appendChild(tattooCard)  
 }

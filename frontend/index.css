@@ -1,3 +1,58 @@
-img { 
-    height: 300px;
+@font-face {
+    font-family: Chomsky;
+    src: url(./fonts/Chomsky-8MOa2.otf)
 }
+
+html {
+    margin: 0;
+}
+
+body {
+    background-image: url('./images/background/Ray.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 0px;
+    font-family: Chomsky;
+}
+
+h1 {
+    margin-top: 0px;
+    width: 100%;
+}
+
+img { 
+    width: 200px;
+    object-fit: fill;
+}
+
+#tattoos-container {
+    width: 96vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tattoo-card {
+    width: fit-content;
+    border: 5px white solid;
+    background-color: black;
+    text-align: center;
+    align-items: center;
+    margin: 15px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    padding: 20px;
+}
+
+

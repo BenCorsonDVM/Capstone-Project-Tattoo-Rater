@@ -1,3 +1,83 @@
+@font-face {
+    font-family: Chomsky;
+    src: url(./fonts/Chomsky-8MOa2.otf)
+}
+
+html {
+    margin: 0;
+}
+
+body {
+    background-image: url('./images/background/Ray.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 0px;
+    font-family: Chomsky;
+}
+
+h1 {
+    margin-top: 0px;
+    width: 100%;
+}
+
 img { 
-    height: 300px;
+    width: 350px;
+    object-fit: fill;
+    float: left;
+    margin: 15px;
+}
+
+#appt-container {
+    display: flex;
+    justify-content: center;
+}
+
+.appt-card {
+    width: fit-content;
+    border: 5px white solid;
+    background-color: black;
+    text-align: center;
+    align-items: center;
+    margin: 30px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+p {
+    font-size: large;
+}
+
+form > div {
+    justify-content: space-evenly;
+    margin: 5px;
+    width: fit-content;
+    display: block;
+    font-size: large;
+}
+
+#submit {
+    margin: 5px;
+}
+
+#cancel {
+    margin: 5px;
 }
