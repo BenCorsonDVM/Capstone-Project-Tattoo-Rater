@@ -62,7 +62,7 @@ function apptForm(tattoo) {
             <div>
                 <label for="time">Time:</label>
                 <select id="time" name="time" required>
-                    <option disabled selected value> -- select a time -- </option>
+                    <option disabled selected value>select a time</option>
                     <option value="10:00 AM">10:00 AM</option>
                     <option value="11:00 AM">11:00 AM</option>
                     <option value="12:00 PM">12:00 PM</option>
