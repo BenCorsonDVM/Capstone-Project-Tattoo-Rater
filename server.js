@@ -13,15 +13,11 @@ app.use('/', express.static(path.join(__dirname, './frontend')))
 
 const { seed, getTattoos, rateTattoo, getOneTattoo } = require('./controller')
 
+
 app.post('/seed', seed)
 app.get('/api/tattoos', getTattoos)
 app.post('/api/tattoos', rateTattoo)
 app.get('/api/tattoos/:id', getOneTattoo)
-
-
-
-
-
 
 
 app.listen(port, () => console.log(`Server running on ${port}`))

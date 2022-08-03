@@ -45,23 +45,24 @@ function apptForm(tattoo) {
         <form>
             <div>
                 <label for="fname">First Name:</label>
-                <input type="textbox" id="fname" name="fname"><br>
+                <input type="textbox" id="fname" name="fname" required><br>
             </div>
             <div>
                 <label for="lname">Last Name:</label>
-                <input type="textbox" id="lname" name="lname"><br>
+                <input type="textbox" id="lname" name="lname" required><br>
             </div>
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br>
+                <input type="email" id="email" name="email" required><br>
             </div>
             <div>
                 <label for="date">Date:</label>
-                <input type="date" id="date" name="date"><br>
+                <input type="date" id="date" name="date" required><br>
             </div>
             <div>
                 <label for="time">Time:</label>
-                <select id="time" name="time">
+                <select id="time" name="time" required>
+                <option disabled selected value> -- select a time -- </option>
                     <option value="10:00 AM">10:00 AM</option>
                     <option value="11:00 AM">11:00 AM</option>
                     <option value="12:00 PM">12:00 PM</option>
