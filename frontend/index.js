@@ -40,7 +40,7 @@ function createTattooCard(tattoos) {
             <form id='${tattoos.tattoo_id}' class='dropdowns'>
                 <label for='tattoo-rating'>Rate This Tattoo!</label>
                 <select name='tattoo-rating' class='tattoo-rating' id='rating-${tattoos.tattoo_id}'>
-                    <option disabled selected value> -- select a rating -- </option>
+                    <option disabled selected value>select a rating</option>
                     <option value='5'>5</option>
                     <option value='4'>4</option>
                     <option value='3'>3</option>
